@@ -1,0 +1,132 @@
+body,ol,ul,h1,h2,h3,h4,h5,h6,p,th,td,dl,dd,form,fieldset,legend,input,textarea,select{margin:0;padding:0;text-align: center;}
+body{font:12px"宋体","Arial Narrow",HELVETICA;background:#fff;-webkit-text-size-adjust:100%;}
+a{color:#2d374b;text-decoration:none}
+a:hover{color:#cd0200;text-decoration:underline}
+em{font-style:normal}
+li{list-style:none;}
+img{border:0;vertical-align:middle}
+table{border-collapse:collapse;border-spacing:0}
+p{word-wrap:break-word}
+
+body{
+  background-color: white;
+  background: url("images/bg.jpg");
+  background-repeat: no-repeat;
+  background-position: top center;
+}
+
+#top{
+  width: 100%;
+  min-width: 960px;
+  max-width: 1920px;
+  background-color: white;
+  height: 60px;
+  box-shadow: 0px 0px 4px 2px rgba(255, 0, 0, 0.5);
+}
+.text-botton {
+  font-size: 20px;
+}
+#login img{
+ height:40px;
+
+}
+#login img:hover{
+
+    box-shadow: 0px 0px 4px 2px rgba(0, 0, 0, 0.3);
+}
+
+#sign span:hover{
+
+    font-size: 30px;
+}
+
+.free-button{
+  width: 186px;
+  height: 39px;
+  background-color:#FDCA00;
+  display:inline-block;
+  line-height: 60px;
+  font-size: 20px;
+}
+
+#top-right{
+  float: right;
+}
+#top-left{
+  float: left;
+}
+#search{
+width: 732px;
+height: 236px;
+background-color: rgba(0, 0, 0, 0.6);
+border-radius: 5px;
+margin: 122px auto;
+text-align: center;
+padding: 10px;
+}
+
+.ser{
+  width:500px;
+  height:50px;
+  font-size: 20px;
+  border-radius:5px;
+  border:none;
+}
+.ser-submit{
+  width:50px;
+  height:50px;
+  background-color:#FDCA00;
+  border-radius:5px;
+}
+#ad{
+  width: 100%;
+  min-width: 960px;
+  max-width: 1920px;
+  background-color: #FDCA00;
+  height: 100px;
+  line-height: 100px;
+  font-size: 30px;
+
+}
+#main{
+  width: 100%;
+  min-width: 960px;
+  max-width: 1920px;
+  background-color: #FFFFFF;
+  overflow: auto;
+
+}
+
+.car{
+  width: 1000px;
+  margin: 10px auto;
+}
+.car ul{
+  margin: 10px;
+}
+.car ul li {
+  float: left;
+  padding: 11px;
+}
+.car ul li img{
+  width: 300px;
+  height: 300px;
+}
+.car ul li:hover{
+  box-shadow: 0px 0px 4px 2px rgba(0, 0, 0, 0.3);
+}
+
+#leg{
+height: 400px;
+  background-image: url("images/bg-foot(3).jpg");
+}
+
+#video{
+  height: 400px;
+  width: auto;
+}
+
+#foot{
+  height: 30px;
+  font-size: 30px;
+}

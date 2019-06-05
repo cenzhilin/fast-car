@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>sign in</title>
+
+  <style media="screen">
+  body{
+    background-color: white;
+    background: url("images/bg.jpg");
+    background-repeat: no-repeat;
+    background-position: top center;
+  }
+    .label {
+      position: absolute;
+      right: 70%;
+    }
+
+    .fi {
+      position: relative;
+      left: 30%;
+    }
+
+    .clr {
+      height: 20px;
+      color：AAAAAA;
+      font-size: 12px;
+      visibility: hidden;
+    }
+
+    .s {
+      font-weight: lighter;
+      color: red;
+    }
+
+    .text {
+      font-family: 宋体;
+      width: 200px;
+    }
+
+    .v {
+      color: cccccc;
+      font-size: 12px;
+    }
+
+    a {
+      font-size: 12px;
+    }
+
+    .btn-img {
+      position: relative;
+      left: 30%;
+    }
+
+    .ok {
+      width: 17px;
+      height: 16px;
+      color: green;
+      visibility: hidden;
+    }
+
+    #pass_ok {
+      visibility: visible;
+    }
+
+    #strength {
+      color: #AAAAAA;
+      font-size: 12px;
+      display: none;
+    }
+
+    .showStren {
+      width: 135px;
+      display: inline;
+      color: white;
+      font-size: 12px;
+    }
+
+    .ceil {
+      border: 0.5px solid #FFFFFF;
+      background-color: #DDDDDD;
+    }
+  </style>
+  <script type="text/javascript">
+    function inUser() {
+      username_mess.style.visibility = "visible";
+      username_mess.style.color = "black";
+      username_mess.innerHTML = "支持中文、英文、数字、_和-的组合，4-20个字符"
+    }
+
+    function outUser() {
+      u = f1.username.value;
+      f1.username.style.border = "1px solid AAAAAA"
+      if (u == "") {
+        username_mess.style.visibility = "hidden";
+        username_ok.style.visibility = "hidden";
+        username_mess.style.color = "black";
+        f1.username.style.color = "black";
+        f1.username.style.border = "";
+        return;
+      }
+      reg = /.{4,20}/;
+      if (!reg.test(u)) {
+        username_mess.innerHTML = "用户名长度只能在4-20位字符之间";
+        username_mess.style.color = "red";
+        f1.username.style.color = "red";
+        f1.username.style.border = "1px solid red";
+        username_ok.style.visibility = "hidden";
+        return;
+      }
+      reg = /^[\u4e00-\u9fa5 \w-]{4,20}$/;
+      if (reg.test(u)) {
+        username_ok.style.visibility = "visible";
+        username_mess.innerHTML = "";
+        username_mess.style.color = "black";
+        f1.username.style.color = "black";
+        f1.username.style.border = "";
+      } else {
+        username_mess.innerHTML = "用户名只能由中文、英文、数字、_和-组成"
+        username_mess.style.color = "red";
+        f1.username.style.color = "red";
+        f1.username.style.border = "1px solid red";
+        username_ok.style.visibility = "hidden";
+      }
+
+    }
+
+    function checkStrong(Str) {
+      sum = 0;
+      reg = /[a-zA-z]/;
+      if (reg.test(Str)) {
+        sum++;
+      }
+      reg = /\d/;
+      if (reg.test(Str)) {
+        sum++;
+      }
+      reg = /[_-]/;
+      if (reg.test(Str)) {
+        sum++;
+      }
+      return sum;
+    }
+
+    function inPass() {
+      pass_mess.innerHTML = "6-16位字符，可由英文、数字及“_”、 “-” 组成";
+      pass_mess.style.visibility = "visible";
+      f1.pwd.style.border = "1px solid gold";
+
+    }
+
+    function outPass() {
+      p = f1.pwd.value;
+      f1.pwd.style.border = "1px solid AAAAAA";
+      if (p == "") {
+        pass_mess.style.visibility = "hidden";
+        return;
+      }
+    }
+
+    function inRPass() {
+      f1.pwd2.style.border = "1px solid gold";
+    }
+
+    function outRPass() {
+      p = f1.pwd2.value;
+      f1.pwd2.style.border = "1px solid AAAAAA";
+      if (p == "") {}
+      if (!(f1.pwd.value == f1.pwd2.value)) {
+        rpass_mess.innerHTML = "两次输入密码不一致";
+        rpass_mess.style.visibility="visible";
+        rpass_mess.style.color = "red";
+        f1.pwd2.style.color = "red";
+        f1.pwd2.style.border = "1px solid red";
+        rpass_ok.style.visibility = "hidden";
+        return;
+      }else{
+          rpass_mess.style.visibility="hidden";
+          rpass_ok.style.visibility = "visible";
+      }
+    }
+
+    function visible() {
+      alert(f1.visi.checked);
+      f1.pwd.type = "text";
+    }
+
+    function keyPass() {
+      if (f1.pwd.value.length >= 6) {
+        pass_ok.innerHTML="正确";
+        pass_mess.style.display = "none";
+        strength.style.display = "inline";
+        sum = checkStrong(f1.pwd.value);
+        if (sum == 1) {
+          l.style.background = "orange";
+        }
+        if (sum == 2) {
+          l.style.background = "orange";
+          m.style.background = "orange";
+        }
+        if (sum == 3) {
+          l.style.background = "orange";
+          m.style.background = "orange";
+          h.style.background = "orange";
+        }
+
+      }
+    }
+  </script>
+</head>
+
+<body>
+  <form id="f1">
+    <div class="label"><b class="s">*</b> 用户名：
+    </div>
+    <div class="fi">
+      <input type="text" name="username" value="" class="text" placeholder="你的账户和登录名" tabindex="1" onfocus="inUser()" onblur="outUser()" />
+      <label id="username_ok" class="ok">正确</label>
+      <br/>
+
+      <div id="username_mess" class="clr">
+
+      </div>
+    </div>
+
+
+    <div class="pass">
+
+      <div class="label">
+        <b class="s">*</b>设置密码：
+      </div>
+      <div class="fi">
+        <input type="password" name="pwd" class="text" placeholder="建议至少使用两种字符组合" tabindex="2" value="" onfocus="inPass()" onblur="outPass()" onkeyup="keyPass()" />
+
+
+        <label id="pass_ok" class="ok"> &nbsp;&nbsp;&nbsp;</label>
+        <input type="checkbox" name="visi" id="viewpwd" value="" onclick="visible()" />
+        <label class="v">显示密码字符</label><br/>
+        <div id="pass_mess" class="clr">
+
+        </div>
+        <div id="strength">安全强度：
+          <table class="showStren" align="center">
+            <tr width="100px" align="center">
+              <td id="l" class="ceil">弱</td>
+              <td id="m" class="ceil">中</td>
+              <td id="h" class="ceil">强</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+      <div class="label"><b class="s">*</b>确认密码:</div>
+      <div class="fi">
+        <input type="password" name="pwd2" value="" placeholder="请再次输入密码" class="text" tabindex="3" onfocus="inRPass()" onblur="outRPass()" />
+        <label id="rpass_ok" class="ok">正确</label>
+        <br/>
+        <div id="rpass_mess" class="clr">
+
+        </div>
+
+      </div>
+    </div>
+
+
+    <div class="label">
+      <b class="s">*</b>邮箱：
+    </div>
+    <div class="fi">
+      <input type="text" name="mail" class="text" placeholder="建议使用常用邮箱" tabindex="4" value=""> &nbsp;&nbsp;&nbsp;
+      <label class="v">免费邮箱：</label>
+      <a href="#">搜狐</a>
+      <a href="#">网易</a><br/>
+      <div class="clr">
+
+      </div>
+    </div>
+
+
+    <div class="label">
+      推荐人用户名：
+    </div>
+    <div class="fi">
+      <input type="text" name="referrer" class="text" placeholder="可不填" tabindex="5" />
+      <br/>
+      <div class="clr">
+
+      </div>
+    </div>
+
+    <input type="button" class="btn-img" id="registsubmit" name="" value="同意以下协议，提交" tabindex="8" />
+  </form>
+</body>
+
+</html>

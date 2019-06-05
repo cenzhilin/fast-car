@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+  <meta charset="utf-8">
+  <title>login</title>
+
+
+<style media="screen">
+body{
+  background-color: white;
+  background: url("images/bg.jpg");
+  background-repeat: no-repeat;
+  background-position: top center;
+}
+  .text1{
+    position: absolute;
+    left: 30%;
+    top:30%;
+    font-size: 30px;
+  }
+  .input{
+    position: absolute;
+    left: 40%;
+    top:31%;
+    width:60px;
+    height:30px;
+    border:none;
+  }
+  .d3{
+    position: absolute;
+    left: 30%;
+    top:40%;
+    font-size: 20px;
+  }
+  .d2{
+    position: absolute;
+    left:53%;
+    top: 37%;
+    font-size: 20px;
+  }
+
+
+</style>
+  <script type="text/javascript">
+    function valiPass() {
+      if (f1.pass.value == "") {
+        mess.innerHTML = "请输入通行证密码";
+        f1.pass.focus();
+        return false;
+      } else {
+        mess.innerHTML = "";
+        loginMsg.style.display = "block";
+        setTimeout("mySubmit()", 3000);
+        return false;
+      }
+
+    }
+
+    function mySubmit() {
+      f1.submit();
+    }
+  </script>
+</head>
+
+<body>
+  <form class="f1" name="f1">
+    <div id="mess" style="color:red;">
+
+    </div>
+
+<div class="text1">
+  用户名:<br/>
+    密&nbsp;&nbsp;码:
+</div>
+<div class="input">
+  <input type="text" name="user" value="" /><br/><br/>
+  <input type="password" name="pass" value="" />
+</div>
+<div class="d2">
+  <a href="#">忘记密码</a>
+</div>
+<div class=" d3">
+
+  <br/>
+  <input type="checkbox" name="save" value="" />记住登录状态
+  <a href="#">https 安全访问</a> <br/>
+  <span class="" id="login">
+  <input type="image" src="images/login.jpg" width="70"  name="" value="登录" onclick="return valiPass()" />
+</span>
+  <a href="sign_in.html">注册</a>
+</div>
+
+
+
+    <div id="loginMsg" style="color:red;display:none;">
+      正在登录快车网，请稍候...
+    </div>
+  </form>
+</body>
+
+</html>
